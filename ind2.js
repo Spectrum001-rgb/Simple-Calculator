@@ -3,6 +3,7 @@ const result = document.querySelector(".result")
 let operand = [];
 let operator = [];
 let str="";
+let disp="";
 // "1+1"
 // + , * 
 // 1+2
@@ -10,12 +11,13 @@ let str="";
 //addition
 function add()
 {
-    // str="1"
-    inp.value="";
+    disp+='+';
+    inp.value=disp;
     operand.push(str); //{1}
     operator.push("+"); // {+}
     str="";
-    console.log(operator,operand);
+    // console.log(operator);
+    // console.log(operand);
 }
 
 
@@ -23,7 +25,8 @@ function add()
 //substraction
 function sub()
 {
-     inp.value="";
+    disp+='-';
+    inp.value=disp;
      operand.push(str);
      operator.push("-");
      str = "";
@@ -33,7 +36,8 @@ function sub()
 //multiplication
 function mul()
 {
-    inp.value="";
+    disp+='*';
+    inp.value=disp;
     operand.push(str);
     operator.push("*");
     str = "";
@@ -43,7 +47,8 @@ function mul()
 //division
 function div()
 {
-    inp.value="";
+    disp+='/';
+    inp.value=disp;
     operand.push(str);
     operator.push("/");
     str = "";
@@ -55,20 +60,15 @@ function div()
 //equals to
 function equal()
 {
-    // result.innerHTML = arr[0];
-    // console.log(arr[0]);
-    // inp.value="";
-    // operator ={+,-,*}
-    // operand = {100,34,25,60}
-    // 100+34-25*60
     operand.push(str);
     
     let res=Number(operand[0]);
+    console.log(operand.length);
     for(let i=0;i<operator.length;i++)
     {
         if (operator[i]==="+")
         {
-            res=res+Number(operand[i+1]);
+            res=res+Number(operand[i+1]);    
         }
         else if (operator[i] === "-") {
           res = res - Number(operand[i+1]);
@@ -78,12 +78,18 @@ function equal()
           res = res * Number(operand[i+1]);
         }
     }
-
-
+    
 
     result.innerHTML = res;
     inp.value="";
-
+    disp=res;
+    while(operand.length > 0) {
+        operand.pop();
+    }
+    while(operator.length > 0) {
+        operator.pop();
+    }
+    str=String(res);
 }
 
 
@@ -94,7 +100,8 @@ function equal()
 function set1()
 {
     str=str+"1";
-    inp.value=str;
+    disp=disp+"1";
+    inp.value=disp;
     
 }
 
@@ -102,7 +109,8 @@ function set1()
 function set2()
 {
     str=str+"2";
-    inp.value=str;
+    disp=disp+"2";
+    inp.value=disp;
 }
 
 
@@ -111,7 +119,8 @@ function set2()
 function set3()
 {
     str=str+"3";
-    inp.value=str;
+    disp=disp+"3";
+    inp.value=disp;
 }
 
 
@@ -120,7 +129,8 @@ function set3()
 function set4()
 {
     str=str+"4";
-    inp.value=str;
+      disp=disp+"4";
+    inp.value=disp;
 }
 
 
@@ -129,7 +139,8 @@ function set4()
 function set5()
 {
     str=str+"5";
-    inp.value=str;
+       disp=disp+"5";
+    inp.value=disp;
 }
 
 
@@ -138,7 +149,8 @@ function set5()
 function set6()
 {
     str=str+"6";
-    inp.value=str;
+     disp=disp+"6";
+    inp.value=disp;
 }
 
 
@@ -147,7 +159,8 @@ function set6()
 function set7()
 {
     str=str+"7";
-    inp.value=str;
+     disp=disp+"7";
+    inp.value=disp;
 }
 
 
@@ -156,7 +169,8 @@ function set7()
 function set8()
 {
     str=str+"8";
-    inp.value=str;
+       disp=disp+"8";
+    inp.value=disp;
 }
 
 
@@ -165,7 +179,8 @@ function set8()
 function set9()
 {
     str=str+"9";
-    inp.value=str;
+      disp=disp+"9";
+    inp.value=disp;
 }
 
 
@@ -173,5 +188,6 @@ function set9()
 function set0()
 {
     str=str+"0";
-    inp.value=str;
+       disp=disp+"0";
+    inp.value=disp;
 }
